@@ -1,0 +1,226 @@
+
+/* pagina completa*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+  font-size: 20px;
+}
+
+/* body*/
+body{
+  background-color: rgb(248, 186, 72);
+}
+
+/*Barra de navegacion*/
+.header {
+  background-color: #1b3039;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+  object-fit: cover;
+  font-family:  ' Nunito Sans Sans', sans-serif;
+}
+
+.header .logo img{
+  height: 80px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.header .logo{
+  cursor:pointer;
+}
+
+.header .logo .img:hover{
+  transform: scale(1.2);
+}
+
+.header .nav-links{
+  list-style: none;
+}
+
+.header .nav-links li{
+  display: inline-block;
+  padding: 0 20px;
+
+}
+
+.header .nav-links li:hover{
+  transform:scale(1.1);
+
+}
+
+.header .nav-links a{
+  font-size: 500;
+  color: #efefef;
+  text-decoration: none;
+}
+
+.header .nav-links li a:hover{
+  color:rgb(248, 186, 72);
+}
+
+/*Imagen grande*/
+.logo-grande{
+  background-color: #191826;
+}
+.logo-grande img{
+  width:100%;
+  object-fit: cover;
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+/*Frase explicación*/
+
+.frase p{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 200;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin: 10%;
+}
+
+/* Caja de busqueda*/
+.filtro{
+  display:none;
+}
+
+.container{
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.busqueda{
+  width:100%;
+  max-width: 700px;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(100%);
+}
+
+.busqueda input{
+  background:  transparent;
+  flex :1;
+  border: 0;
+  outline:  none;
+  padding: 24px 20px;
+  font-size: 30px;
+  color: #191826;
+}
+
+::placeholder{
+  color: #313135;
+}
+.busqueda button img{
+  width: 40px;
+}
+
+.busqueda button{
+  border:0;
+  border-radius: 50%;
+  width:60px;
+  height: 60px;
+  background:  rgb(251, 187, 68);
+  cursor:pointer;
+}
+
+
+/*footer*/
+
+.pie-pagina{
+  width:100%;
+  background-color: #191826;
+  font-family:  ' Nunito Sans', sans-serif;
+
+}
+
+.pie-pagina .grupo-1{
+  width:100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.pie-pagina .grupo-1 .box figure img{
+  width: 350px;
+}
+
+.pie-pagina .grupo-1 .box h2{
+  color: white;
+  margin-bottom: 25px;
+  font-size: 20px;
+
+}
+
+.pie-pagina .grupo-1 .box p{
+  color: #efefef;
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+  display : inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color:#fff;
+  margin-right: 10px;
+  background-color: #0d2033;
+  text-align: center;
+  transition: all 300ms ease;
+
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+  color:rgb(251, 187, 68);
+}
+
+.pie-pagina .grupo-2{
+  background-color: #1b3039;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.pie-pagina .grupo-2 small{
+  font-size: 15px;
+  font-family: 'ExtraLight 200',  Nunito Sans ;
+}
+
+.pie-pagina .grupo-2 small b{
+  font-size: 15px;
+  font-family: 'ExtraLight 200',  Nunito Sans ;
+}
