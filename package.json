@@ -1,0 +1,15 @@
+{
+  "name": "mirada_analitica",
+  "version": "1.0.0",
+  "description": "Proyecto modular, Universidad de Guadalajara, analiza el nivel de aceptación que cada candidato político tiene dentro de la población, los datos se recogerán desde Twitter y Facebook",
+  "main": "function.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

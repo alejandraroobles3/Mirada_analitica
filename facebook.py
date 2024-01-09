@@ -7,7 +7,6 @@ from time import sleep
 # https://www.facebook.com/groups/GROUP_ID/posts/POST_ID"
 
 """ pos id ya usados
-
 """
 
 POST_ID = "pfbid02Gqc6L8PraN5F6MTgZ8gJUpG9iTSipbfYCgdksd6DCrRUP6Hoj4jH1cZeqxj7HYcJl"
@@ -43,3 +42,4 @@ for comment in comments:
 with open('txt/udg.txt', 'a', encoding='utf-8') as file:
     for item in coment_txt:
         file.write(item+ '\n')
+
