@@ -223,7 +223,7 @@ input:focus-visible + label {
 }
 
 .divider {
-  border-bottom: 3px solid #201f23;
+  border-bottom: 2px solid rgb(249, 202, 115);
   margin-top: 1%;
   box-sizing: border-box;
   margin-left: 5%;
