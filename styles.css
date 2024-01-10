@@ -9,7 +9,7 @@
 
 /* body*/
 body{
-  background-color: rgb(248, 186, 72);
+  background-color: #dcd9d5;
 }
 
 /*Barra de navegacion*/
@@ -91,11 +91,21 @@ body{
   text-align: center;
   vertical-align: middle;
   margin-top: 15%;
+  margin-bottom: 8%;
   margin-left: 10%;
-  margin-right: 10%;;
+  margin-right: 10%;
 }
 
 /* Caja de busqueda*/
+#cand{
+  font-family: 'Bold 700',  Nunito Sans ;
+  font-weight: 600;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 2%;
+}
+
 .tabset > input[type="radio"] {
   position: absolute;
   left: -200vw;
@@ -114,10 +124,6 @@ body{
   display: block;
 }
 
-/*
- Styling
-*/
-
 .tabset > label {
   position: relative;
   display: inline-flex;
@@ -127,8 +133,10 @@ body{
   cursor: pointer;
   font-weight: 600;
   margin: 0 auto;
+  font-family: 'SemiBold 600',  Nunito Sans ;
 
 }
+
 
 .tabset > label::after {
   content: "";
@@ -137,7 +145,7 @@ body{
   bottom: 10px;
   width: 22px;
   height: 4px;
-  background: #d7660f;
+  background: rgb(248, 186, 72);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -167,8 +175,9 @@ input:focus-visible + label {
 
 .tab-panel {
   padding: 30px 0;
-  border-top: 1px solid #d7660f;
+  border-top: 1px solid rgb(248, 186, 72);
   text-align: justify;
+  font-family: 'SemiBold 600',  Nunito Sans ;
 }
 
 
@@ -184,6 +193,87 @@ input:focus-visible + label {
   justify-content: center;
   align-items: center;
   height: 50vh;
+}
+
+/*Colaboradores*/
+#colaboradores{
+  background-color: rgb(248, 186, 72);
+  border-color: #3b3b3b;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colaboradores{
+  margin-top: 2%;
+}
+
+.colaboradores p{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#titulo{
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-top:5%;
+}
+
+.divider {
+  border-bottom: 3px solid #201f23;
+  margin-top: 1%;
+  box-sizing: border-box;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*Instituciones*/
+
+#instituciones{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(248, 186, 72);
+}
+
+.instituciones{
+  margin: 2%;
+  width:100%;
+  position: relative;
+  justify-content: center;
+
+}
+
+#titulote{
+  font-family: 'SemiBold 600',  Nunito Sans ;
+  font-weight: 200;
+  font-size: 2.2rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.instituciones img{
+  width:20%;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+  display: list-item;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(0%);
+}
+
+.dividerd{
+  border-bottom: 1px solid #6c6c6c;
+  margin-top: 1%;
+  box-sizing: border-box;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 /*footer*/
