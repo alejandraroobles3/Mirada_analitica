@@ -1,3 +1,7 @@
+negativo
+positivo
+
+
 claudia sheinbaum
 
 """ pos id ya usados
