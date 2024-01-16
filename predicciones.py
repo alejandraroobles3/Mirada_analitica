@@ -6,10 +6,10 @@ import csv
 
 nlp= spacy.load('es_core_news_sm')
 
-clf=joblib.load('entrenamiento/modelo_entrenado.pkl')
+clf=joblib.load('modelo_entrenado2.pkl')
 
 # Abre el archivo en modo lectura
-with codecs.open('txt/xochitl.txt', 'r', 'UTF-8') as f:
+with codecs.open('txt/claudia.txt', 'r', 'UTF-8') as f:
     # Itera sobre cada línea en el archivo
     lines=[]
     for line in f:
@@ -33,12 +33,12 @@ for l in lines:
     predicciones.append(str(prediction))
 
 
-with open('csv/xochitl.csv', 'w', encoding='UTF-8',newline='') as file:
+with open('csv/claudia.csv', 'w', encoding='UTF-8',newline='') as file:
     writer = csv.writer(file)
     
-    writer.writerow(["'"+'dato'+"'","'"+'predicciones'+"'"])
+    writer.writerow(['dato','predicciones'])
     for l in range(0,len(lines)):
-        writer.writerow(["'"+lines[l]+"'","'"+predicciones[l]+"'"])
+        writer.writerow([lines[l],predicciones[l]])
 
 
 
