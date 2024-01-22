@@ -1,55 +1,48 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import SVC
-from sklearn.pipeline import make_pipeline
-from sklearn import metrics
-import spacy
-import joblib
+import re
+import string
 
-# Cargar el modelo de Spacy para español
-nlp = spacy.load('es_core_news_sm')
+def eliminar_emojis(texto):
+    # Eliminar emojis utilizando una expresión regular
+    patron_emojis = re.compile("["
+                              u"\U0001F600-\U0001F64F"  # emoticones
+                              u"\U0001F300-\U0001F5FF"  # símbolos e iconos
+                              u"\U0001F680-\U0001F6FF"  # transporte y mapas
+                              u"\U0001F700-\U0001F77F"  # alquimia
+                              u"\U0001F780-\U0001F7FF"  # alquimia (extensión A)
+                              u"\U0001F800-\U0001F8FF"  # puntos de código de compatibilidad suplementaria
+                              u"\U0001F900-\U0001F9FF"  # emoji complementarios y pictogramas
+                              u"\U0001FA00-\U0001FA6F"  # emoji de personas
+                              u"\U0001FA70-\U0001FAFF"  # alquimia (extensión B)
+                              u"\U00002702-\U000027B0"  # adiciones de emoji
+                              u"\U000024C2-\U0001F251" 
+                              "]+", flags=re.UNICODE)
+    
+    # Reemplazar emojis con espacios en blanco
+    texto_sin_emojis = re.sub(patron_emojis, '', texto)
+    
+    return texto_sin_emojis
 
-# Leer el archivo CSV con las columnas 'review_es' y 'sentimiento'
-data = pd.read_csv('entrenamiento/IMDB Dataset SPANISH.csv')
+def remove_punctuation(text):
+    """Función para eliminar la puntuación"""
+    return text.translate(str.maketrans('', '', string.punctuation))
 
-# Dividir el conjunto de datos en entrenamiento y prueba
-train_data, test_data = train_test_split(data, test_size=0.2, random_state=42)
+def procesar_archivo_entrada(nombre_archivo):
+    with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
+        lineas = archivo.readlines()
+    
+    lineas_procesadas = [remove_punctuation(eliminar_emojis(linea)) for linea in lineas if linea.strip()]  # Eliminar renglones en blanco
+    
+    return lineas_procesadas
 
-# Preprocesamiento de texto con Spacy
-def preprocess_text(text):
-    doc = nlp(text)
-    return ' '.join([token.lemma_ for token in doc if not token.is_punct and not token.is_stop])
+def guardar_archivo_salida(nombre_archivo, lineas_procesadas):
+    with open(nombre_archivo, 'w', encoding='utf-8') as archivo_salida:
+        archivo_salida.writelines(lineas_procesadas)
 
-# Aplicar preprocesamiento a los conjuntos de entrenamiento y prueba
-train_data['processed_text'] = train_data['review_es'].apply(preprocess_text)
-test_data['processed_text'] = test_data['review_es'].apply(preprocess_text)
+# Ejemplo de uso
+nombre_archivo_entrada = 'txt/claudia.txt'
+nombre_archivo_salida = 'txt/udg.txt'
 
-# Crear un clasificador con un modelo de bolsa de palabras y SVM
-model = make_pipeline(CountVectorizer(), SVC(kernel='linear'))
+lineas_procesadas = procesar_archivo_entrada(nombre_archivo_entrada)
+guardar_archivo_salida(nombre_archivo_salida, lineas_procesadas)
 
-# Entrenar el modelo con los datos de entrenamiento
-model.fit(train_data['processed_text'], train_data['sentimiento'])
-
-# Predecir el conjunto de prueba
-predicted_sentiments = model.predict(test_data['processed_text'])
-
-# Medir la precisión del modelo
-accuracy = metrics.accuracy_score(test_data['sentimiento'], predicted_sentiments)
-print(f'Precisión del modelo: {accuracy:.2f}')
-
-# Imprimir ejemplos de predicciones en el conjunto de prueba
-print("\nEjemplos de predicciones en el conjunto de prueba:")
-for i in range(5):
-    print(f'Texto: {test_data["review_es"].iloc[i]}')
-    print(f'Predicción: {predicted_sentiments[i]}')
-    print(f'Etiqueta real: {test_data["sentimiento"].iloc[i]}\n')
-
-# Clasificar un nuevo texto
-new_text = "Este producto es excelente, lo recomiendo totalmente."
-preprocessed_new_text = preprocess_text(new_text)
-prediction = model.predict([preprocessed_new_text])[0]
-print(f'Clasificación del nuevo texto: {prediction}')
-
-# Guardar el modelo entrenado
-joblib.dump(model, 'modelo_entrenado_svm.pkl')
+print(f"Proceso completado. Texto procesado guardado en {nombre_archivo_salida}")
