@@ -1,5 +1,6 @@
 import re
 import string
+from unidecode import unidecode
 
 def eliminar_emojis(texto):
     # Eliminar emojis utilizando una expresión regular
@@ -26,11 +27,15 @@ def remove_punctuation(text):
     """Función para eliminar la puntuación"""
     return text.translate(str.maketrans('', '', string.punctuation))
 
+def quitar_acentos(texto):
+    """Función para quitar acentos"""
+    return unidecode(texto)
+
 def procesar_archivo_entrada(nombre_archivo):
     with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
         lineas = archivo.readlines()
     
-    lineas_procesadas = [remove_punctuation(eliminar_emojis(linea)) for linea in lineas if linea.strip()]  # Eliminar renglones en blanco
+    lineas_procesadas = [remove_punctuation(eliminar_emojis(quitar_acentos(linea.lower()))) for linea in lineas if linea.strip()]  # Eliminar renglones en blanco, convertir a minúsculas y quitar acentos
     
     return lineas_procesadas
 
@@ -39,10 +44,10 @@ def guardar_archivo_salida(nombre_archivo, lineas_procesadas):
         archivo_salida.writelines(lineas_procesadas)
 
 # Ejemplo de uso
-nombre_archivo_entrada = 'txt/claudia.txt'
-nombre_archivo_salida = 'txt/udg.txt'
+nombre_archivo_entrada = 'txt/udg.txt'
+nombre_archivo_salida = 'txt/xochitl.txt'
 
 lineas_procesadas = procesar_archivo_entrada(nombre_archivo_entrada)
 guardar_archivo_salida(nombre_archivo_salida, lineas_procesadas)
 
-print(f"Proceso completado. Texto procesado guardado en {nombre_archivo_salida}")
+print(f"Proceso completado. Texto procesado, convertido a minúsculas y sin acentos guardado en {nombre_archivo_salida}")

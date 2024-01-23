@@ -2566,7 +2566,7 @@ negativo
 negativo
 negativo
 negativo
-negocioantetivo
+negativo
 negativo
 positivo
 positivo

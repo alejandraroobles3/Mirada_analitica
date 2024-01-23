@@ -27,12 +27,16 @@ pfbid0MHEE3rgFoDsT32RnTgCVJDTumPxRqsquvyhweAkRWXpyTTsEqPnLsnFKZff2WqqQl
    pfbid021apX6ALyw3iczE4Y4TvENUEEX7jvwsbLkwUukfCxvBAQ3jSq9iukzkfvbocbjCn4l
    pfbid02Uo89wt8ntZVTj29E5uQqqiHdaxjpZ5pe1WmbdSkpvcGJMuXrD1pS8geCKZrbDyx2l
    pfbid0rmprwswW68ahtAG1nwhP5AM9ZTcUse87dQU47JPWjrHC3UMsHvsnf4pZtHqxc11fl
+   pfbid08V5NYAM9qdtat6g7D5kLMapZSzuarseSbo4BuzLnJzEGHNTBX5hPVRrhWsxwHpv8l
+   pfbid0SJkUDeZ6hLPwXCWE7VPcqfi4mTi59vvVd6AqrnMQvxcJ3GFYHqoHrn4z7ndVKHaVl
+   pfbid02NAhsLxkJhzux7c1RynibDGorWCd18dh7MetPZYcpQdVe6LX64tsFqdVv5cXtCmGBl
+   pfbid0kPiL4GnPghsGu8aoJu25PCnzK7RCWh9y7RZNtHr26KWSK5hb5VUnqFw8EK64eXdSl
 """
 
-POST_ID = "pfbid0rmprwswW68ahtAG1nwhP5AM9ZTcUse87dQU47JPWjrHC3UMsHvsnf4pZtHqxc11fl"
+POST_ID = "pfbid0kPiL4GnPghsGu8aoJu25PCnzK7RCWh9y7RZNtHr26KWSK5hb5VUnqFw8EK64eXdSl"
 
 # number of comments to download -- set this to True to download all comments
-MAX_COMMENTS = 1000
+MAX_COMMENTS = 450
 
 print(POST_ID)
 
