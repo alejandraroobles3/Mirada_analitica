@@ -17,6 +17,7 @@ train_data, test_data = train_test_split(data, test_size=0.2, random_state=42)
 
 # Preprocesamiento de texto con Spacy
 def preprocess_text(text):
+    
     doc = nlp(text)
     return ' '.join([token.lemma_.lower() for token in doc if not token.is_punct and not token.is_stop])
 
