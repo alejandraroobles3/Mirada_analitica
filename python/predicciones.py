@@ -6,10 +6,10 @@ import csv
 
 nlp= spacy.load('es_core_news_sm')
 
-clf=joblib.load('entrenamiento/modelo_entrenado2.pkl')
+clf=joblib.load('entrenamiento/modelo_entrenado.pkl')
 
 # Abre el archivo en modo lectura
-with codecs.open('txt/xochitl.txt', 'r', 'UTF-8') as f:
+with codecs.open('csv/xochitl.csv', 'r', 'UTF-8') as f:
     # Itera sobre cada línea en el archivo
     lines=[]
     for line in f:
