@@ -15,8 +15,8 @@ def pred(prediccion):
 
 
 def agregar_dato(dat,pred,estado,rs,tem,cand):
-    con=psycopg2.connect(database="mirada.analitica", user="postgres",
-    password="Ale123roblesmora",host="localhost")
+    con=psycopg2.connect(database="mirada_analitica", user="postgres",
+    password="Ale123roblesmora",host="localhost", port="5433")
     cursor1=con.cursor()
 
     dato=[dat,pred,estado,rs,tem,cand]
