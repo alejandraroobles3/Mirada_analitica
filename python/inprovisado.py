@@ -1,7 +1,7 @@
 import psycopg2
 import pandas as pd
 
-data=pd.read_csv('csv/xochitl.csv')
+data=pd.read_csv('csv/claudia.csv')
 def pred(prediccion):
     
     id=[]
@@ -32,8 +32,8 @@ prediccion=[]
 dato=data['dato']
 prediccion=data['predicciones']
 red_social=1
-candidato=2
-estado=33
+candidato=3
+estado=1
 tema=1
 id=[]
 
