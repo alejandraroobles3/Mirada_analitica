@@ -59,9 +59,27 @@
                 
                 <div class="tab-panels">
                 <section id="marzen" class="tab-panel">
-                    <h2>6A. Märzen</h2>
-                    <p><strong>Overall Impression:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
-                    <p><strong>History:</strong> As the name suggests, brewed as a stronger “March beer” in March and lagered in cold caves over the summer. Modern versions trace back to the lager developed by Spaten in 1841, contemporaneous to the development of Vienna lager. However, the Märzen name is much older than 1841; the early ones were dark brown, and in Austria the name implied a strength band (14 °P) rather than a style. The German amber lager version (in the Viennese style of the time) was first served at Oktoberfest in 1872, a tradition that lasted until 1990 when the golden Festbier was adopted as the standard festival beer.</p>
+                    <p><strong>Jorge Álvarez Máynez</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="logo/jorge.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p>Partido Político: Movimiento Ciudadano</p>
+                        </div>
+                    </div>
+                    <p><strong>Xóchitl Gálvez Ruiz</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="logo/xochitl.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p>Partido Político: Frente Amplio Por México (PRI, PAN, PRD)</p>
+                        </div>
+                    </div>
+                    <p><strong>	Claudia Sheinbaum Pardo</strong></p>
+                    <div style="display: flex; align-items: flex-start;">
+                        <img src="logo/claudia.jpg" alt="candidato" style="margin-right: 10px;">
+                        <div>
+                            <p>Partido Político: MORENA</p>
+                        </div>
+                    </div>
                 </section>
                 <section id="rauchbier" class="tab-panel">
                     <h2>6B. Rauchbier</h2>
@@ -73,31 +91,7 @@
                     <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
                     <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
                 </section>
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const tabs = document.querySelectorAll('[name="tabset"]');
-                        const panels = document.querySelectorAll('.tab-panel');
-                
-                        tabs.forEach(tab => {
-                            tab.addEventListener('click', function () {
-                                const selectedTab = document.querySelector('[name="tabset"]:checked');
-                                const selectedPanel = document.getElementById(selectedTab.getAttribute('aria-controls'));
-                
-                                fetch(`/getData?tableName=${selectedTab.id}`)
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        const panelContent = selectedPanel.querySelector('p');
-                                        panelContent.innerHTML = '<h2>Resultados:</h2>';
-                                        data.forEach(item => {
-                                            panelContent.innerHTML += `<p>${JSON.stringify(item)}</p>`;
-                                        });
-                                    })
-                                    .catch(error => console.error('Error al obtener datos:', error));
-                            });
-                        });
-                    });
-                </script>               
+                </div>             
             </div>
         </section>
         <!-- mostrar resultados  -->

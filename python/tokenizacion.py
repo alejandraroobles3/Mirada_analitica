@@ -44,7 +44,7 @@ def guardar_archivo_salida(nombre_archivo, lineas_procesadas):
         archivo_salida.writelines(lineas_procesadas)
 
 # Ejemplo de uso
-nombre_archivo_entrada = 'txt/xochitl.txt'
+nombre_archivo_entrada = 'txt/jorge.txt'
 nombre_archivo_salida = 'txt/udg.txt'
 
 lineas_procesadas = procesar_archivo_entrada(nombre_archivo_entrada)

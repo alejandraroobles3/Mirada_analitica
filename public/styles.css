@@ -103,7 +103,7 @@ body{
   font-size: 2.2rem;
   text-align: center;
   vertical-align: middle;
-  margin-bottom: 2%;
+  margin: 5%;
 }
 
 .tabset > input[type="radio"] {
@@ -185,7 +185,7 @@ input:focus-visible + label {
   max-width: 65em;
   position: relative;
   text-align: center; /* Align labels in the center */
-  margin: 0 auto;
+  margin: 5%;
 }
 
 #busqueda{
@@ -193,8 +193,16 @@ input:focus-visible + label {
   justify-content: center;
   align-items: center;
   height: 50vh;
+  margin: 10%;
 }
 
+/*imagen de candidatos*/
+#marzen img{
+  width: 100px;
+  height:100px;
+  margin: 10px;
+  justify-content: left;
+}
 /*Colaboradores*/
 #colaboradores{
   background-color: rgb(248, 186, 72);
@@ -202,6 +210,7 @@ input:focus-visible + label {
   display:flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .colaboradores{
@@ -356,3 +365,4 @@ input:focus-visible + label {
   font-size: 15px;
   font-family: 'ExtraLight 200',  Nunito Sans ;
 }
+
