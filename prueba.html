@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos desde PostgreSQL</title>
+</head>
+<body>
+  <h1>Datos desde PostgreSQL</h1>
+  <ul id="data-list"></ul>
+
+  <script>
+    fetch('/')
+      .then(response => response.json())
+      .then(data => {
+        const dataList = document.getElementById('data-list');
+        data.forEach(row => {
+          const listItem = document.createElement('li');
+          listItem.textContent = JSON.stringify(row);
+          dataList.appendChild(listItem);
+        });
+      });
+  </script>
+</body>
+</html>

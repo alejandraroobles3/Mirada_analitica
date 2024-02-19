@@ -325,7 +325,7 @@ input:focus-visible + label {
 
 }
 
-.pie-pagina .grupo-1 .box p{
+.pie-pagina .grupo-1 .box a{
   color: #efefef;
   margin-bottom: 10px;
 }
@@ -366,3 +366,8 @@ input:focus-visible + label {
   font-family: 'ExtraLight 200',  Nunito Sans ;
 }
 
+.sobre a{
+  text-decoration: none;
+  color: white;
+  line-height: 2em;
+}
