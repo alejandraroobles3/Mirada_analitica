@@ -43,7 +43,7 @@ id=pred(prediccion)
 
 print(len(id), len(dato))
 
-for i in range(8666,len(dato)):
+for i in range(0,len(dato)):
     d=dato[i]
     p=id[i]
     agregar_dato(d,p,estado,red_social,tema,candidato)
