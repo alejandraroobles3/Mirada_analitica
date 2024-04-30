@@ -24,6 +24,8 @@ def preprocess_text(text):
 
 predicciones=[]
 
+
+
 for l in lines:
     new_text = l
     preprocessed_new_text = preprocess_text(new_text)
@@ -31,6 +33,8 @@ for l in lines:
     prediction= clf.predict([preprocessed_new_text])[0]
     #print(f'Clasificación del nuevo texto: {prediction}',lines[l])
     predicciones.append(str(prediction))
+    print(preprocessed_new_text)
+
 
 
 with open('csv/jorge.csv', 'a', encoding='UTF-8',newline='') as file:

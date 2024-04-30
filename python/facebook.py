@@ -7,15 +7,14 @@ from time import sleep
 # https://www.facebook.com/groups/GROUP_ID/posts/POST_ID"
 
 """ pos id ya usados
-jorge alvarez
-pfbid02yNj42rVbfsyPPCAJeeySPjQFrva59Twrefi5QE2k6ghzVG6nM9PmqSExNDBMxf1Jl 350
-
+pfbid0f6ETDDpnuPT7qj49iiKvH1hzgSgWwpfk87wBUAheSXAnjbz2juGdw4UAq4jehLVTl
+pfbid02vRCfmiU6Q8QPGnfdNJ1JPueKkD3vzNY9yXab4ATCDK2ncZW7phqbRbLkWAcfayzRl
 """
 
-POST_ID = "pfbid02yNj42rVbfsyPPCAJeeySPjQFrva59Twrefi5QE2k6ghzVG6nM9PmqSExNDBMxf1Jl"
+POST_ID ="pfbid0hsRiEMp9BGcjpjqUVqguURoXZez224WapgcyrzBkm3zrGBDhZL3ikb2zbzGLJEpxl"
 
 # number of comments to download -- set this to True to download all comments
-MAX_COMMENTS = 400
+MAX_COMMENTS = 100
 
 print(POST_ID)
 
@@ -42,7 +41,7 @@ for comment in comments:
 
 #print("este es el segundo comentario : \n",len(coment_txt))
 
-with open('txt/jorge.txt', 'a', encoding='utf-8') as file:
+with open('txt/xochitl.txt', 'a', encoding='utf-8') as file:
     for item in coment_txt:
         file.write(item+ '\n')
 

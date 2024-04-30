@@ -17,7 +17,7 @@ const client = new Client({
   password: "Ale123roblesmora",
   port: 5432,
   ssl: {
-      rejectUnauthorized: false // Para evitar errores de certificado SSL si no tienes configurado un certificado personalizado
+      rejectUnauthorized: false                                         // Para evitar errores de certificado SSL si no tienes configurado un certificado personalizado
   }
 });
 client.connect();

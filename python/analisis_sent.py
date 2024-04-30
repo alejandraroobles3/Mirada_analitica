@@ -1,16 +1,18 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import LinearSVC
 from sklearn.pipeline import make_pipeline
+from sklearn.naive_bayes import MultinomialNB
 from sklearn import metrics
 import spacy
 import joblib
+from sklearn.neural_network import MLPClassifier
 
-# Cargar el modelo de Spacy para español
+# Cargar el modelo de Spacy 
 nlp = spacy.load('es_core_news_sm')
 
-# Leer el archivo CSV con las columnas 'review_es' y 'sentimiento'
+# Leer el archivo CSV 
 data = pd.read_csv('csv/xochitl.csv')
 
 # Dividir el conjunto de datos en entrenamiento y prueba
@@ -26,8 +28,8 @@ def preprocess_text(text):
 train_data['processed_text'] = train_data['dato'].apply(preprocess_text)
 test_data['processed_text'] = test_data['dato'].apply(preprocess_text)
 
-# Crear un clasificador con un modelo de bolsa de palabras y Naive Bayes
-model = joblib.load('modelo_entrenado2.pkl')
+#clasificador 
+model = make_pipeline(CountVectorizer(), MLPClassifier())
 
 # Entrenar el modelo con los datos de entrenamiento
 model.fit(train_data['processed_text'], train_data['predicciones'])
@@ -39,10 +41,10 @@ predicted_sentiments = model.predict(test_data['processed_text'])
 accuracy = metrics.accuracy_score(test_data['predicciones'], predicted_sentiments)
 print(f'Precisión del modelo: {accuracy:.2f}')
 
-# Imprimir ejemplos de predicciones en el conjunto de prueba
+# Imprimir ejemplos de predicciones
 print("\nEjemplos de predicciones en el conjunto de prueba:")
 for i in range(5):
-    print(f'Texto: {test_data["dato"].iloc[i]}')
+    print(f'Texto: {test_data["processed_text"].iloc[i]}')
     print(f'Predicción: {predicted_sentiments[i]}')
     print(f'Etiqueta real: {test_data["predicciones"].iloc[i]}\n')
 
@@ -54,4 +56,4 @@ print(f'Clasificación del nuevo texto: {prediction}')
 
 import joblib
 
-joblib.dump(model, 'modelo_entrenado2.pkl')
+#joblib.dump(model, 'entrenamiento/modelo_entrenado2.pkl')
