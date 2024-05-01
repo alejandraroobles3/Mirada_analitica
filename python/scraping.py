@@ -6,51 +6,53 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
 
-def main():
-    # Configuración del WebDriver y opciones para ignorar las notificaciones del navegador
-    chrome_options = webdriver.ChromeOptions()
-    prefs = {"profile.default_content_setting_values.notifications": 2}
-    chrome_options.add_experimental_option("prefs", prefs)
+# Opciones para ignorar las notificaciones del navegador
+chrome_options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications": 2}
+chrome_options.add_experimental_option("prefs", prefs)
 
-    # Configuración de Selenium para usar ChromeDriver con las opciones definidas
-    driver_path = 'C:\\Users\\aleja\\chromedriver.exe'
-    driver = webdriver.Chrome(driver_path, options=chrome_options)
+# Configuración de Selenium para usar ChromeDriver con las opciones definidas
+driver_path = 'C:\\Users\\aleja\\chromedriver.exe'
+driver = webdriver.Chrome(driver_path, options=chrome_options)
+driver.get('https://www.facebook.com/')
 
-    try:
-        driver.get('http://www.facebook.com/login')
-        # Iniciar sesión en Facebook
-        username = driver.find_element(By.ID, "email")
-        password = driver.find_element(By.ID, "pass")
-        username.send_keys("fakeporsiempre321@gmail.com")
-        password.send_keys("Ale123roblesmora")
-        password.send_keys(Keys.RETURN)
+# Iniciar sesión en Facebook
+username = driver.find_element(By.ID, "email")
+password = driver.find_element(By.ID, "pass")
+username.send_keys("fakeporsiempre321@gmail.com")
+password.send_keys("Ale123roblesmora")
+password.send_keys(Keys.RETURN)
 
-        # Esperar a que la página de inicio cargue completamente
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+# Esperar a que la página cargue
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
 
-        # Realizar búsqueda en Facebook
-        search_box = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[type="search"]')))
-        search_box.send_keys('xochitl galvez')
-        search_box.send_keys(Keys.RETURN)
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div[role="feed"]')))
+# Navegar a la publicación específica
+driver.get('https://www.facebook.com/Xochitl.Galvez.R')
 
-        # Scroll para cargar más resultados
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(5)  # Dar tiempo para que la página cargue los nuevos resultados
+# Scroll through the page 10 times
+for _ in range(40):
+    # Scroll down to the bottom of the page
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(3)  # wait to load page
 
-        # Extrae el HTML de la página y utiliza BeautifulSoup
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        posts = soup.find_all('a', href=True, attrs={'aria-label': True})
+# Extract hrefs using BeautifulSoup
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+links = soup.find_all('span', class_='x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j')
 
-        # Filtrar enlaces de publicaciones y guardarlos en un archivo txt
-        with open('links.txt', 'w') as file:
-            for post in posts:
-                link = post['href']
-                if 'posts' in link or 'photos' in link:
-                    file.write('https://www.facebook.com' + link + '\n')
+# We need to find <a> elements within these <span> elements
+hrefs = [a['href'] for link in links for a in link.find_all('a') if a.get('href') and a['href'].startswith('https')]
+print(f"Total hrefs found: {len(hrefs)}")
 
-    finally:
-        driver.quit()
+trimmed_links = [link.split('?')[0] for link in hrefs]
 
-if __name__ == '__main__':
-    main()
+# Imprimir los enlaces recortados
+for trimmed_link in trimmed_links:
+    print(trimmed_link)
+
+with open('txt/links.txt', 'a', encoding='utf-8') as file:
+    for item in trimmed_links:
+        file.write(item+ '\n')
+# Cerrar el navegador
+driver.quit()
+
+
