@@ -42,10 +42,11 @@ def read_unique_urls(input_file):
 
 # Llamar a la función con el nombre de tu archivo de entrada
 urls = read_unique_urls('txt/links.txt')
-
+urls_us=[]
 
 # Procesar cada URL en la lista
 for url in urls:
+    urls_us.append(url)
     driver.get(url)
 
     # Código para expandir comentarios, adaptado al contenido de cada página
@@ -69,10 +70,11 @@ for url in urls:
     for comment in comments:
         print(comment.text.strip())
 
-    with open('txt/xochitl.txt', 'a', encoding='utf-8') as file:
+    with open('txt/jorge.txt', 'a', encoding='utf-8') as file:
         for item in comments:
             file.write(item.text.strip() + '\n')  # Extract text and add a newline character for each comment
 
 
+
 # Mantener la sesión abierta, quitar driver.quit() si no quieres cerrar el navegador
-# driver.quit()
+driver.quit()

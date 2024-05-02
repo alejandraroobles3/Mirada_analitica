@@ -27,10 +27,10 @@ password.send_keys(Keys.RETURN)
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
 
 # Navegar a la publicación específica
-driver.get('https://www.facebook.com/Xochitl.Galvez.R')
+driver.get('https://www.facebook.com/AlvarezMaynez')
 
 # Scroll through the page 10 times
-for _ in range(40):
+for _ in range(100):
     # Scroll down to the bottom of the page
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(3)  # wait to load page
