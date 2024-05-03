@@ -70,7 +70,7 @@ for url in urls:
     for comment in comments:
         print(comment.text.strip())
 
-    with open('txt/jorge.txt', 'a', encoding='utf-8') as file:
+    with open('txt/delgadillo.txt', 'a', encoding='utf-8') as file:
         for item in comments:
             file.write(item.text.strip() + '\n')  # Extract text and add a newline character for each comment
 
