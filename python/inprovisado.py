@@ -1,10 +1,11 @@
 import psycopg2
 import pandas as pd
 
-#8627 sin datos de xohictl
-#con 14303
+#20,089 sin
 
-data=pd.read_csv('csv/xochitl.csv')
+
+
+data=pd.read_csv('csv/jorge.csv')
 def pred(prediccion):
     
     id=[]
@@ -16,17 +17,16 @@ def pred(prediccion):
     
     return id
 
+con=psycopg2.connect(database="mirada_analitica", user="administrador", password="Ale123roblesmora",host="mirada.postgres.database.azure.com", port="5432")
+cursor1=con.cursor()
 
 def agregar_dato(dat,pred,estado,rs,tem,cand):
-    con=psycopg2.connect(database="mirada_analitica", user="administrador", password="Ale123roblesmora",host="mirada.postgres.database.azure.com", port="5432")
-    cursor1=con.cursor()
-
     dato=[dat,pred,estado,rs,tem,cand]
 
     cursor1.execute("insert into dato (dato,id_prediccion,id_estado,id_red_social,id_tema,id_candidato) values (%s,%s,%s,%s,%s,%s) ",dato)
     con.commit()
-    cursor1.close()
-    con.close()
+
+
 
 dato=[]
 prediccion=[]
@@ -34,7 +34,7 @@ prediccion=[]
 dato=data['dato']
 prediccion=data['predicciones']
 red_social=1
-candidato=1
+candidato=3
 estado=33
 tema=1
 id=[]
@@ -43,10 +43,10 @@ id=pred(prediccion)
 
 print(len(id), len(dato))
 
-for i in range(0,len(dato)):
+for i in range(1,len(dato)): #len(dato)
     d=dato[i]
     p=id[i]
     agregar_dato(d,p,estado,red_social,tema,candidato)
 
-
-
+cursor1.close()
+con.close()

@@ -33,7 +33,7 @@ for l in lines:
     prediction= clf.predict([preprocessed_new_text])[0]
     #print(f'Clasificación del nuevo texto: {prediction}',lines[l])
     predicciones.append(str(prediction))
-    print(preprocessed_new_text)
+    #print(preprocessed_new_text)
 
 
 
