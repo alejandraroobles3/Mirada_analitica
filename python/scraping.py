@@ -27,7 +27,7 @@ password.send_keys(Keys.RETURN)
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
 
 # Navegar a la publicación específica
-driver.get('https://www.facebook.com/ClaudDelgadillo')
+driver.get('https://www.facebook.com/dianagoma07')
 
 # Scroll through the page 10 times
 for _ in range(100):

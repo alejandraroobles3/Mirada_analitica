@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-data=pd.read_csv('csv/jorge.csv')
+data=pd.read_csv('csv/delgadillo.csv')
 def pred(prediccion):
     
     id=[]
@@ -34,16 +34,16 @@ prediccion=[]
 dato=data['dato']
 prediccion=data['predicciones']
 red_social=1
-candidato=3
-estado=33
-tema=1
+candidato=5
+estado=14
+tema=3
 id=[]
 
 id=pred(prediccion)
 
 print(len(id), len(dato))
 
-for i in range(1,len(dato)): #len(dato)
+for i in range(0,len(dato)): #len(dato)
     d=dato[i]
     p=id[i]
     agregar_dato(d,p,estado,red_social,tema,candidato)

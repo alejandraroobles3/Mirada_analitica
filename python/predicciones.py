@@ -9,7 +9,7 @@ nlp= spacy.load('es_core_news_sm')
 clf=joblib.load('entrenamiento/modelo_entrenado2.pkl')
 
 # Abre el archivo en modo lectura
-with codecs.open('txt/jorge.txt', 'r', 'UTF-8') as f:
+with codecs.open('txt/laura.txt', 'r', 'UTF-8') as f:
     # Itera sobre cada línea en el archivo
     lines=[]
     for line in f:
@@ -37,7 +37,7 @@ for l in lines:
 
 
 
-with open('csv/jorge.csv', 'a', encoding='UTF-8',newline='') as file:
+with open('csv/laura.csv', 'a', encoding='UTF-8',newline='') as file:
     writer = csv.writer(file)
     
     writer.writerow(['dato','predicciones'])
